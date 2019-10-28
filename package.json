@@ -1,6 +1,6 @@
 {
   "name": "justified-layout",
-  "version": "2.1.2",
+  "version": "3.0.0",
   "description": "Pass in box sizes and get back sizes and coordinates for a justified layout",
   "keywords": [
     "justify",
@@ -14,10 +14,6 @@
     "dist",
     "lib"
   ],
-  "bugs": {
-    "url": "https://github.com/flickr/justified-layout/issues",
-    "email": "flickr-open-source@yahoo-inc.com"
-  },
   "main": "./lib/index.js",
   "scripts": {
     "lint": "eslint .",
@@ -32,16 +28,15 @@
     "type": "git",
     "url": "git@github.com:flickr/justified-layout.git"
   },
-  "author": "Flickr Open Source <flickr-open-source@yahoo-inc.com>",
   "license": "ISC",
   "devDependencies": {
     "browserify": "~16.5.0",
     "coveralls": "^3.0.4",
-    "eslint": "^2.13.1",
+    "eslint": "^4.18.2",
     "eslint-config-flickr": "~2.0.1",
     "expect": "1.14.0",
     "istanbul": "^0.4.2",
-    "mocha": "2.4.5",
+    "mocha": "^6.1.4",
     "uglify-js": "3.6.4"
   },
   "dependencies": {
