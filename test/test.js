@@ -122,37 +122,25 @@ describe('justified-layout', function () {
 		});
 
 		it('should error if box height not passed in', function () {
-
-			try {
+			expect(function () {
 				justifiedLayout([
 					{ width: 10 }
 				]);
-			} catch (e) {
-				expect(e.message, "Item 0 has an invalid aspect ratio");
-			}
-
+			}).toThrow("Item 0 has an invalid aspect ratio");
 		});
 
-		it('should error if box height not passed in', function () {
-
-			try {
+		it('should error if box width not passed in', function () {
+			expect(function () {
 				justifiedLayout([
 					{ height: 10 }
 				]);
-			} catch (e) {
-				expect(e.message, "Item 0 has an invalid aspect ratio");
-			}
-
+			}).toThrow("Item 0 has an invalid aspect ratio");
 		});
 
 		it('should error if aspect ratio is not a number', function () {
-
-			try {
+			expect(function () {
 				justifiedLayout(['NaN']);
-			} catch (e) {
-				expect(e.message, "Item 0 has an invalid aspect ratio");
-			}
-
+			}).toThrow("Item 0 has an invalid aspect ratio");
 		});
 
 	});
