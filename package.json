@@ -37,7 +37,7 @@
     "expect": "25.2.3",
     "istanbul": "^0.4.2",
     "mocha": "^7.0.0",
-    "uglify-js": "3.8.0"
+    "uglify-js": "3.8.1"
   },
   "dependencies": {
     "merge": "1.2.1"
