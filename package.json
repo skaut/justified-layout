@@ -34,7 +34,7 @@
     "coveralls": "^3.0.4",
     "eslint": "^6.6.0",
     "eslint-config-flickr": "~2.0.1",
-    "expect": "25.2.7",
+    "expect": "25.3.0",
     "istanbul": "^0.4.2",
     "mocha": "^7.0.0",
     "uglify-js": "3.8.1"
