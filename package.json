@@ -40,6 +40,6 @@
     "uglify-js": "3.11.6"
   },
   "dependencies": {
-    "merge": "1.2.1"
+    "merge": "2.1.0"
   }
 }
