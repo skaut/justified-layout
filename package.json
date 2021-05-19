@@ -19,7 +19,7 @@
     "lint": "eslint .",
     "test": "nyc mocha",
     "build": "npm run build-dist && npm run build-min",
-    "build-dist": "mkdir -p dist && browserify lib/index.js -o dist/justified-layout.js",
+    "build-dist": "mkdir -p dist && browserify -r $npm_package_main:justified-layout -o dist/justified-layout.js",
     "build-min": "uglifyjs dist/justified-layout.js --comments -o dist/justified-layout.min.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "prepublish": "npm run build"
