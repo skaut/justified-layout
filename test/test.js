@@ -4,7 +4,7 @@
 /* eslint-env mocha */
 
 var justifiedLayout = require('..');
-var expect = require('expect');
+var {expect} = require('expect');
 var fourSquares = require(__dirname + '/fixtures/four-squares');
 var fourSquares400 = require(__dirname + '/fixtures/four-squares-400');
 
