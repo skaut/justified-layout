@@ -19,7 +19,7 @@
     "lint": "eslint .",
     "test": "nyc mocha",
     "build": "npm run build-dist && npm run build-min",
-    "build-dist": "mkdir -p dist && browserify -r $npm_package_main:justified-layout -o dist/justified-layout.js",
+    "build-dist": "mkdir -p dist && browserify lib/index.js -o dist/justified-layout.js",
     "build-min": "uglifyjs dist/justified-layout.js --comments -o dist/justified-layout.min.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "prepublishOnly": "npm run build"
@@ -34,7 +34,7 @@
     "coveralls": "^3.1.0",
     "eslint": "^8.0.0",
     "eslint-config-flickr": "^3.0.0",
-    "expect": "28.1.3",
+    "expect": "29.0.0",
     "mocha": "^10.0.0",
     "nyc": "^15.0.1",
     "uglify-js": "3.17.0"
