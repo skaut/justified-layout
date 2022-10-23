@@ -38,6 +38,16 @@ interface JustifiedLayoutOptions {
      */
     targetRowHeightTolerance?: number | undefined;
     /**
+     * The minimum acceptable row height.
+     * @default 0.5 * targetRowHeight
+     */
+    edgeCaseMinRowHeight?: number | undefined;
+    /**
+     * The maximum acceptable row height.
+     * @default 2 * targetRowHeight
+     */
+    edgeCaseMaxRowHeight?: number | undefined;
+    /**
      * Will stop adding rows at this number regardless of how many items still need to be laid
      * out.
      * @default Number.POSITIVE_INFINITY
