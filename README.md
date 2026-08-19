@@ -1,4 +1,4 @@
-# Flickr's Justified Layout
+# Justified Layout
 
 [![NPM Version](https://img.shields.io/npm/v/%40skaut%2Fjustified-layout)](https://www.npmjs.com/package/@skaut/justified-layout)
 [![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/skaut/justified-layout/CI.yml?branch=master&logo=github)](https://github.com/skaut/justified-layout/actions)
@@ -6,10 +6,13 @@
 [![NPM Downloads](https://img.shields.io/npm/dm/%40skaut%2Fjustified-layout?logo=npm)](https://www.npmjs.com/package/@skaut/justified-layout)
 [![NPM License](https://img.shields.io/npm/l/%40skaut%2Fjustified-layout)](https://github.com/skaut/justified-layout/blob/master/LICENSE)
 
-Pass in box sizes and get back sizes and coordinates for a nice justified layout like that seen all
-over Flickr. The <a href="https://www.flickr.com/explore">explore page</a> is a great example. Here's
-another example using the `fullWidthBreakoutRowCadence` option on Flickr's
-<a href="https://www.flickr.com/photos/dataichi/albums/72157650151574962">album page</a>.
+Pass in box sizes and get back sizes and coordinates for a nice justified layout, like the one seen
+all over [Flickr](https://www.flickr.com/explore).
+
+This is a maintained fork of [flickr/justified-layout](https://github.com/flickr/justified-layout),
+which is no longer developed.
+
+The library computes geometry only — it never touches the DOM, so rendering stays up to you.
 
 It converts this:
 
@@ -74,10 +77,62 @@ const justifiedLayout = require('@skaut/justified-layout');
 For use directly in a browser via a `<script>` tag, load `dist/justified-layout.umd.js`,
 which exposes a global `justifiedLayout` function.
 
+Type declarations are bundled, so there is no need for a separate `@types` package.
 
-## Full Documentation and Examples
 
-Find it here: http://flickr.github.io/justified-layout/
+## Input
+
+The first argument is an array of items to lay out. Each item is either an aspect ratio
+(`width / height`) or an object with `width` and `height` properties:
+
+```js
+justifiedLayout([1.33, 1, 0.65]);
+justifiedLayout([{ width: 400, height: 300 }, { width: 300, height: 300 }]);
+```
+
+
+## Config
+
+| Option | Type | Default | Description |
+| --- | --- | --- | --- |
+| `containerWidth` | `number` | `1060` | The width that boxes will be contained within, irrelevant of padding. |
+| `containerPadding` | `number` \| `{ top, right, bottom, left }` | `10` | Provide a single integer to apply padding to all sides, or an object to apply individual values to each side. |
+| `boxSpacing` | `number` \| `{ horizontal, vertical }` | `10` | Provide a single integer to apply spacing both horizontally and vertically, or an object to apply individual values to each axis. |
+| `targetRowHeight` | `number` | `320` | It's called a target because row height is the lever used to fit everything in nicely. The algorithm gets as close to it as it can. |
+| `targetRowHeightTolerance` | `number` | `0.25` | How far row heights may deviate from `targetRowHeight`, as a fraction between `0` and `1`. Sticking to `targetRowHeight` exactly would likely make the layout impossible to justify. |
+| `edgeCaseMinRowHeight` | `number` | `0.5 * targetRowHeight` | The minimum acceptable row height, for rows that cannot be resolved within tolerance. |
+| `edgeCaseMaxRowHeight` | `number` | `2 * targetRowHeight` | The maximum acceptable row height, for rows that cannot be resolved within tolerance. |
+| `maxNumRows` | `number` | `Number.POSITIVE_INFINITY` | Stop adding rows at this number, regardless of how many items still need to be laid out. |
+| `forceAspectRatio` | `boolean` \| `number` | `false` | Provide an aspect ratio to return everything in that aspect ratio. Makes the values in your input array irrelevant; the length of the array remains relevant. |
+| `fullWidthBreakoutRowCadence` | `boolean` \| `number` | `false` | Provide a number `n` to make every `n`th row a single, full-width item. Only happens if that item has an aspect ratio >= 1. |
+| `showWidows` | `boolean` | `true` | Whether to return items at the end of the layout that don't make up a full row. If `false`, they are omitted from the output. |
+| `widowLayoutStyle` | `'left'` \| `'center'` \| `'justify'` | `'left'` | If widows are visible, how they should be laid out. |
+
+
+## Output
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `containerHeight` | `number` | Height of the container holding the layout. |
+| `widowCount` | `number` | Number of items in rows that aren't fully packed. |
+| `boxes` | `Array` | The laid-out boxes, in input order. |
+
+Each box has:
+
+| Property | Type | Description |
+| --- | --- | --- |
+| `aspectRatio` | `number` | Aspect ratio of the box. |
+| `top` | `number` | Distance between the top of the box and the top boundary of the layout. |
+| `width` | `number` | Width of the box. |
+| `height` | `number` | Height of the box. |
+| `left` | `number` | Distance between the left of the box and the left boundary of the layout. |
+| `forcedAspectRatio` | `boolean` | Present and `true` when the aspect ratio was forced via `forceAspectRatio`. |
+
+
+## Demo
+
+`demo.html` in the repository renders several configurations side by side. Run `npm run build`
+first, since it loads the bundle from `dist/`.
 
 
 ## License
