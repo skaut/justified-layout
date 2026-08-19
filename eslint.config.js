@@ -1,22 +1,25 @@
-'use strict';
-
-const {FlatCompat} = require('@eslint/eslintrc');
-const js = require('@eslint/js');
-const globals = require('globals');
+import {FlatCompat} from '@eslint/eslintrc';
+import js from '@eslint/js';
+import globals from 'globals';
 
 const compat = new FlatCompat({
-	baseDirectory: __dirname,
+	baseDirectory: import.meta.dirname,
 	recommendedConfig: js.configs.recommended
 });
 
-module.exports = [
+export default [
 	{
 		ignores: ['coverage/', 'dist/']
 	},
 	...compat.config({
 		extends: 'flickr',
 		env: {
-			node: true
+			node: true,
+			es2024: true
+		},
+		parserOptions: {
+			ecmaVersion: 'latest',
+			sourceType: 'module'
 		},
 		rules: {}
 	}),
