@@ -1,8 +1,10 @@
+---
 name: "CI"
-on:
+"on":
   push:
     branches: "*"
   pull_request:
+
 jobs:
   build:
     name: "Build"
@@ -13,29 +15,31 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v7
+
       - name: "Setup node"
         uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: "Cache NPM dependencies"
         uses: actions/cache@v6
         with:
           path: "~/.npm"
-          key: npm-dependencies-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
+          key: >-
+            npm-dependencies-${{ runner.os }}-${{ matrix.node-version }}-${{
+            hashFiles('package.json') }}
           restore-keys: |
             npm-dependencies-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
             npm-dependencies-${{ runner.os }}-${{ matrix.node-version }}-
+
       - name: "Install NPM dependencies"
         run: |
           npm install
+
       - name: "Build"
         run: |
           npm run build
-      - name: "Upload artifact"
-        uses: actions/upload-artifact@v7
-        with:
-          name: "build-artifact-${{ matrix.node-version }}"
-          path: dist
+
   test:
     name: "Test"
     runs-on: ubuntu-latest
@@ -46,33 +50,36 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v7
+
       - name: "Setup node"
         uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: "Cache NPM dependencies"
         uses: actions/cache@v6
         with:
           path: "~/.npm"
-          key: npm-dependencies-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
+          key: >-
+            npm-dependencies-${{ runner.os }}-${{ matrix.node-version }}-${{
+            hashFiles('package.json') }}
           restore-keys: |
             npm-dependencies-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
             npm-dependencies-${{ runner.os }}-${{ matrix.node-version }}-
+
       - name: "Install NPM dependencies"
         run: |
           npm install
-      - name: "Download build artifact"
-        uses: actions/download-artifact@v8
-        with:
-          name: "build-artifact-${{ matrix.node-version }}"
-          path: dist
+
       - name: "Test"
         run: |
           npm test
+
       - name: "Upload coverage results"
         continue-on-error: true
         run: |
           npm run coverage
+
   lint:
     name: "Lint"
     runs-on: ubuntu-latest
@@ -82,21 +89,27 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v7
+
       - name: "Setup node"
         uses: actions/setup-node@v7
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: "Cache NPM dependencies"
         uses: actions/cache@v6
         with:
           path: "~/.npm"
-          key: npm-dependencies-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
+          key: >-
+            npm-dependencies-${{ runner.os }}-${{ matrix.node-version }}-${{
+            hashFiles('package.json') }}
           restore-keys: |
             npm-dependencies-${{ runner.os }}-${{ matrix.node-version }}-${{ hashFiles('package.json') }}
             npm-dependencies-${{ runner.os }}-${{ matrix.node-version }}-
+
       - name: "Install NPM dependencies"
         run: |
           npm install
+
       - name: "Lint"
         run: |
           npm run lint
