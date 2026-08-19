@@ -18,7 +18,11 @@
     "url": "git+https://github.com/skaut/justified-layout.git"
   },
   "license": "MIT",
-  "author": "Marek Dědič <developer@dedic.eu>",
+  "author": {
+    "name": "Marek Dědič",
+    "email": "developer@dedic.eu",
+    "url": "https://dedic.eu/"
+  },
   "sideEffects": false,
   "type": "module",
   "exports": {
