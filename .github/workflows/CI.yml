@@ -34,7 +34,7 @@ jobs:
 
       - name: "Install NPM dependencies"
         run: |
-          npm install
+          npm ci
 
       - name: "Build"
         run: |
@@ -69,7 +69,7 @@ jobs:
 
       - name: "Install NPM dependencies"
         run: |
-          npm install
+          npm ci
 
       - name: "Test"
         run: |
@@ -110,7 +110,7 @@ jobs:
 
       - name: "Install NPM dependencies"
         run: |
-          npm install
+          npm ci
 
       - name: "Lint"
         run: |
