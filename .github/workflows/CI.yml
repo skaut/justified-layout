@@ -75,10 +75,12 @@ jobs:
         run: |
           npm test
 
-      - name: "Upload coverage results"
-        continue-on-error: true
-        run: |
-          npm run coverage
+      - name: "Upload coverage to Codecov"
+        if: matrix.node-version == '24.x'
+        uses: codecov/codecov-action@v7
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
 
   lint:
     name: "Lint"
