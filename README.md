@@ -1,6 +1,10 @@
 # Flickr's Justified Layout
 
-[![Build Status](https://travis-ci.org/flickr/justified-layout.svg?branch=master)](https://travis-ci.org/flickr/justified-layout) [![Coverage Status](https://coveralls.io/repos/github/flickr/justified-layout/badge.svg?branch=master)](https://coveralls.io/github/flickr/justified-layout?branch=master)
+[![NPM Version](https://img.shields.io/npm/v/%40skaut%2Fjustified-layout)](https://www.npmjs.com/package/@skaut/justified-layout)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/skaut/justified-layout/CI.yml?branch=master&logo=github)](https://github.com/skaut/justified-layout/actions)
+[![Codecov (with branch)](https://img.shields.io/codecov/c/github/skaut/justified-layout/master?logo=codecov)](https://app.codecov.io/gh/skaut/justified-layout)
+[![NPM Downloads](https://img.shields.io/npm/dm/%40skaut%2Fjustified-layout?logo=npm)](https://www.npmjs.com/package/@skaut/justified-layout)
+[![NPM License](https://img.shields.io/npm/l/%40skaut%2Fjustified-layout)](https://github.com/skaut/justified-layout/blob/master/LICENSE)
 
 Pass in box sizes and get back sizes and coordinates for a nice justified layout like that seen all
 over Flickr. The <a href="https://www.flickr.com/explore">explore page</a> is a great example. Here's
