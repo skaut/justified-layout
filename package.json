@@ -33,7 +33,7 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . && attw --pack .",
     "test": "c8 mocha",
     "build": "vite build",
     "prepack": "npm run build"
@@ -53,6 +53,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
     "@eslint/eslintrc": "^3.3.6",
     "@eslint/js": "^10.0.1",
     "c8": "^12.0.0",
