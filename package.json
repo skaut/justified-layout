@@ -9,19 +9,18 @@
     "layout",
     "boxes"
   ],
-  "files": [
-    "demo.html",
-    "dist",
-    "lib",
-    "types"
-  ],
-  "type": "module",
-  "engines": {
-    "node": "^20.19.0 || >=22.12.0"
+  "homepage": "https://github.com/skaut/justified-layout#readme",
+  "bugs": {
+    "url": "https://github.com/skaut/justified-layout/issues"
   },
-  "main": "./dist/justified-layout.cjs",
-  "module": "./lib/index.js",
-  "types": "./types/index.d.cts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skaut/justified-layout.git"
+  },
+  "license": "MIT",
+  "author": "Marek Dědič <developer@dedic.eu>",
+  "sideEffects": false,
+  "type": "module",
   "exports": {
     ".": {
       "import": {
@@ -35,11 +34,20 @@
     },
     "./package.json": "./package.json"
   },
+  "main": "./dist/justified-layout.cjs",
+  "module": "./lib/index.js",
+  "types": "./types/index.d.cts",
+  "files": [
+    "demo.html",
+    "dist",
+    "lib",
+    "types"
+  ],
   "scripts": {
-    "lint": "eslint . && attw --pack .",
-    "test": "c8 mocha",
     "build": "vite build",
-    "prepack": "npm run build"
+    "lint": "eslint . && attw --pack .",
+    "prepack": "npm run build",
+    "test": "c8 mocha"
   },
   "c8": {
     "include": [
@@ -50,18 +58,6 @@
       "lcovonly"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/skaut/justified-layout.git"
-  },
-  "bugs": {
-    "url": "https://github.com/skaut/justified-layout/issues"
-  },
-  "homepage": "https://github.com/skaut/justified-layout#readme",
-  "publishConfig": {
-    "access": "public"
-  },
-  "license": "MIT",
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.5",
     "@eslint/eslintrc": "^3.3.6",
@@ -75,5 +71,11 @@
     "globals": "^17.11.0",
     "mocha": "^11.0.1",
     "vite": "^8.2.1"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
