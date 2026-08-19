@@ -1,5 +1,5 @@
 {
-  "name": "justified-layout",
+  "name": "@skaut/justified-layout",
   "version": "4.1.0",
   "description": "Pass in box sizes and get back sizes and coordinates for a justified layout",
   "keywords": [
@@ -49,7 +49,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:flickr/justified-layout.git"
+    "url": "git+https://github.com/skaut/justified-layout.git"
+  },
+  "bugs": {
+    "url": "https://github.com/skaut/justified-layout/issues"
+  },
+  "homepage": "https://github.com/skaut/justified-layout#readme",
+  "publishConfig": {
+    "access": "public"
   },
   "license": "MIT",
   "devDependencies": {
