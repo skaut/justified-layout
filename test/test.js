@@ -1,8 +1,6 @@
 // Copyright 2019 SmugMug, Inc.
 // Licensed under the terms of the New-BSD license. Please see LICENSE file in the project root for terms.
 
-/* eslint-env mocha */
-
 var justifiedLayout = require('..');
 var expect = require('expect').expect;
 var fourSquares = require(__dirname + '/fixtures/four-squares');
@@ -21,11 +19,11 @@ function isThisWidowRowCentered(layout) {
 	var boxSpacing = 10;
 	var geometryCenteredWidows;
 
-	var n = 0;
-	var totalBoxCount = 0;
-	var widowRowWidth = 0;
-	var centeredRowOffset = 0;
-	var leftOfFirstWidow = 0;
+	var n;
+	var totalBoxCount;
+	var widowRowWidth;
+	var centeredRowOffset;
+	var leftOfFirstWidow;
 
 	geometryCenteredWidows = justifiedLayout(layout, {
 		containerWidth: containerWidth,
@@ -340,7 +338,7 @@ describe('justified-layout', function () {
 				expect(isThisWidowRowCentered(layout));
 			});
 
-		}, this);
+		});
 
 		it('should return single widow with justified layout', function () {
 
