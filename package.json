@@ -36,7 +36,7 @@
     "lint": "eslint .",
     "test": "c8 mocha",
     "build": "vite build",
-    "prepublishOnly": "npm run build"
+    "prepack": "npm run build"
   },
   "c8": {
     "include": [
