@@ -30,7 +30,7 @@
     "type": "git",
     "url": "git@github.com:flickr/justified-layout.git"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.6",
     "@eslint/js": "^10.0.1",
