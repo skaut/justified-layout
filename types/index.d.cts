@@ -134,4 +134,4 @@ declare function justifiedLayout(
     options?: JustifiedLayoutOptions,
 ): JustifiedLayoutResult;
 
-export default justifiedLayout;
+export = justifiedLayout;

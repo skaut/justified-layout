@@ -50,14 +50,29 @@ Which gives you everything you need to make something like this:
 
 ## Install
 
-`npm install justified-layout`
+```sh
+npm install @skaut/justified-layout
+```
 
 
 ## Easy Usage
 
 ```js
-var layoutGeometry = require('justified-layout')([1.33, 1, 0.65] [, config])
+import justifiedLayout from '@skaut/justified-layout';
+
+const layoutGeometry = justifiedLayout([1.33, 1, 0.65], config);
 ```
+
+The `config` argument is optional.
+
+CommonJS is still supported for compatibility:
+
+```js
+const justifiedLayout = require('@skaut/justified-layout');
+```
+
+For use directly in a browser via a `<script>` tag, load `dist/justified-layout.umd.js`,
+which exposes a global `justifiedLayout` function.
 
 
 ## Full Documentation and Examples

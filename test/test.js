@@ -1,10 +1,12 @@
 // Copyright 2019 SmugMug, Inc.
 // Licensed under the terms of the New-BSD license. Please see LICENSE file in the project root for terms.
 
-var justifiedLayout = require('..');
-var expect = require('expect').expect;
-var fourSquares = require(__dirname + '/fixtures/four-squares');
-var fourSquares400 = require(__dirname + '/fixtures/four-squares-400');
+import { readFileSync } from 'node:fs';
+import { expect } from 'expect';
+import justifiedLayout from '../lib/index.js';
+
+var fourSquares = JSON.parse(readFileSync(new URL('fixtures/four-squares.json', import.meta.url), 'utf8'));
+var fourSquares400 = JSON.parse(readFileSync(new URL('fixtures/four-squares-400.json', import.meta.url), 'utf8'));
 
 var testLayoutsForCenteredWidows = [
 	[1, 1, 1, 1], // 1 widow
